@@ -1,0 +1,162 @@
+Build a complete, production-ready personal portfolio website for:
+Name: Md. Abu-Talha Roni
+Tagline: Robot Enthusiast, Learner
+
+## Tech stack (preferred)
+- React + Vite
+- React Router for multi-page/section navigation
+- Tailwind CSS for styling
+- Framer Motion for tasteful micro-animations
+- Icon library (lucide-react or similar)
+- No backend required; use static JSON/data files where needed
+
+## Brand & Design
+- Modern, clean, airy layout with good whitespace
+- Color palette (feel free to refine): 
+  - Primary: #6C5CE7 (indigo/violet)
+  - Accent: #00D1B2 (teal)
+  - Dark: #0F172A (slate-900)
+  - Light: #F8FAFC (slate-50)
+- Rounded-2xl cards, soft shadows, subtle hover effects
+- Consistent typography scale; accessible contrast (WCAG AA+)
+- Smooth section scrolling, sticky navbar on desktop, hamburger on mobile
+- SEO tags + Open Graph + favicon
+
+## Global Structure (Navbar)
+Navbar entries (in order):
+1) Home
+2) About (with subsections: Education, Publication)
+3) Skills
+4) Projects
+5) Products
+6) Team
+7) Contact
+
+Use React Router routes:
+- "/"         -> Home (a composed landing page with previews)
+- "/about"    -> About full page (with Education & Publication sections expanded)
+- "/projects" -> Projects listing + individual project pages ("/projects/:slug")
+- "/products" -> Products listing + individual product pages ("/products/:slug")
+- "/team"     -> Team page (roles and short bios)
+- "/contact"  -> Contact page/section (also shown at bottom of Home)
+
+## Home (Landing)
+Order of content (top to bottom):
+1) Hero section (below navbar):
+   - Left: formal/subformal portrait inside an animated frame (e.g., rotating gradient border / subtle glow).
+   - Right: "Hi, I am Md. Abu-Talha Roni" and tagline "Robot Enthusiast, Learner".
+   - Prominent "Download CV" button:
+     - Clicking opens the CV in a new tab and also allows download. Provide a placeholder file "public/cv.pdf" and wire it up.
+2) About preview:
+   - 3–4 sentence intro about me (placeholder text).
+   - Two mini-cards labeled “Education” and “Publication” with tiny snippets.
+   - A "Read more" link that navigates to /about (do NOT include full content here).
+3) Skills:
+   - A responsive grid of circular/rounded-rect skill badges (tech stack, tools, frameworks).
+   - For software skills, include each official logo/icon in the badge.
+4) Certificates (animated):
+   - Carousel or slider with one certificate centered, others peeking left/right.
+   - Auto-slide every few seconds.
+   - Clicking any certificate opens its credential URL in a new tab.
+5) Projects (preview):
+   - 2–3 project cards shown on Home.
+   - Each card: image, project name, short description, "Read more" linking to that project’s detail page.
+   - Include a clear “View more projects” CTA that routes to /projects.
+6) Products (preview):
+   - Same card layout/behavior as Projects.
+   - Show 2–3 on Home and a “View more products” CTA to /products.
+7) Team (preview):
+   - Card layout similar to projects but simpler (smaller descriptions).
+   - Show role & org; each card has “Read more” to /team.
+   - My roles to include:
+     - Head Of Electrical — Society of Automotive Engineers (SAE)
+     - Team Lead — Team Zenith
+     - Member — RUET Electra Force
+8) Contact (footer block on Home too):
+   - Links: Gmail (mailto), GitHub, LinkedIn, Facebook (open in new tab).
+   - Show current location line (placeholder text like “Rajshahi, Bangladesh” that I can edit).
+   - Copyright line: “© {currentYear} Md. Abu-Talha Roni. All rights reserved.”
+
+## About (full page)
+- A longer “About me” section (placeholder text).
+- Subsections:
+  1) Education: card list (degree, institution, year, highlight points).
+  2) Publication: list items with title, venue, year, and external link if available.
+- Keep content structured and easy to extend.
+
+## Skills (full section/page)
+- Data-driven list (JSON/TS object) including:
+  - Category (e.g., Programming, Robotics, Embedded, ML/AI, Tools)
+  - Name, logo (URL or local svg), proficiency level (optional)
+- Display as circular/rounded-rect badges with logos and names; responsive.
+
+## Certificates (component)
+- Data structure: { title, issuer, issueDate, credentialUrl, image }
+- Auto-animated carousel (Framer Motion or a lightweight slider).
+- Click opens credentialUrl in new tab.
+
+## Projects
+- /projects: grid list of project cards with filters/search (optional).
+- Each card: image, title, 2–3 line summary, tags.
+- Card “Read more” -> dedicated page /projects/:slug with:
+  - Hero image, full description, tech stack, role, timeline, links (repo/demo).
+
+## Products
+- Mirrored behavior to Projects.
+- /products: listing + /products/:slug detail pages.
+
+## Team
+- /team page: cards with role, org, short description.
+- Keep layout similar to Projects but simpler (no deep detail pages required; a modal or simple route is fine).
+
+## Contact
+- Contact section on a dedicated route AND as a footer block on Home.
+- Include:
+  - Email button (mailto: placeholder)
+  - GitHub, LinkedIn, Facebook icons/links
+  - Current location line (placeholder)
+- Add a simple contact form (Name, Email, Message) that uses mailto or a no-backend form service (e.g., formsubmit) with graceful fallback; show success/error toasts.
+
+## Behavior & UX
+- Smooth scroll to sections from navbar on Home.
+- Active link highlighting.
+- Keyboard accessible (tab order, focus states).
+- Lazy-load images; use <picture> where helpful.
+- All external links target="_blank" with rel="noopener noreferrer".
+- Respect prefers-reduced-motion (reduce animations).
+- Include a light/dark mode toggle (persist in localStorage).
+
+## Content placeholders to prefill
+- Name: Md. Abu-Talha Roni
+- Tagline: Robot Enthusiast, Learner
+- CV path: /cv.pdf
+- Socials:
+  - Gmail: mailto:example@gmail.com (placeholder)
+  - GitHub: https://github.com/your-username (placeholder)
+  - LinkedIn: https://www.linkedin.com/in/your-username (placeholder)
+  - Facebook: https://facebook.com/your-username (placeholder)
+- Location: Rajshahi, Bangladesh (placeholder; make editable)
+- Skills: populate with common robotics/embedded/software stacks (placeholders with logos)
+- 3–4 Certificates with believable placeholders and credential URLs
+- 3 Projects + 3 Products with images, slugs, short descriptions
+- Team roles exactly as given above
+
+## Files & Structure (suggested)
+- src/
+  - data/skills.ts, certificates.ts, projects.ts, products.ts, team.ts
+  - components/ (NavBar, Hero, AboutPreview, SkillCloud, CertificateCarousel, Card, Footer, etc.)
+  - pages/ (Home.tsx, About.tsx, Projects.tsx, ProjectDetail.tsx, Products.tsx, ProductDetail.tsx, Team.tsx, Contact.tsx)
+  - app router + layout
+- public/
+  - images/ (portraits, project/product/cert logos)
+  - cv.pdf
+
+## Deliverables
+1) All source code with clean components and comments
+2) README with:
+   - How to run locally (npm i && npm run dev)
+   - How to build & deploy (e.g., Vercel/Netlify)
+   - Where to replace placeholder content (data files + images)
+3) Lighthouse-friendly performance and accessibility
+
+Now generate the full project with sample placeholder content and images, ready to run.
