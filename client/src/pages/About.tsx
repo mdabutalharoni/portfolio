@@ -141,7 +141,11 @@ export default function About() {
                             </div>
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            <strong>Authors:</strong> {pub.authors.join(", ")}
+                            <strong>Authors:</strong> {pub.authors.map((author, index) => (
+                              <span key={index} className={author.strong ? "font-bold" : ""}>
+                                {author.name}{index < pub.authors.length - 1 ? ", " : ""}
+                              </span>
+                            ))}
                           </div>
                         </div>
                       </div>

@@ -96,8 +96,11 @@ export default function Home() {
                         <p className="text-primary text-sm">{pub.venue}</p>
                         <p className="text-muted-foreground text-sm">{pub.year}</p>
                         <p className="text-xs text-muted-foreground">
-                          {pub.authors.slice(0, 2).join(", ")}
-                          {pub.authors.length > 2 && ` +${pub.authors.length - 2} more`}
+                          {pub.authors.map((author, index) => (
+                            <span key={index} className={author.strong ? "font-bold" : ""}>
+                              {author.name}{index < pub.authors.length - 1 ? ", " : ""}
+                            </span>
+                          ))}
                         </p>
                       </div>
                     ))}

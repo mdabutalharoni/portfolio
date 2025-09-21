@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import resume from "@assets/resume_talha_ruet.pdf";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -42,9 +43,9 @@ export function Navigation() {
   const downloadCV = () => {
     // Open CV in new tab and trigger download
     const link = document.createElement("a");
-    link.href = "/cv.pdf";
+    link.href = resume.toString();
     link.target = "_blank";
-    link.download = "Md_Abu_Talha_Roni_CV.pdf";
+    link.download = "Talha_Roni_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

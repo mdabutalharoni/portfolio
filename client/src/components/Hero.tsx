@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import portraitImage from "@assets/Me.png";
+import portraitImage from "@assets/me.png";
+import resume from "@assets/resume_talha_ruet.pdf";
 
 export function Hero() {
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Resume__Md__Abu_Talha_Roni.pdf";
+    link.href = resume.toString();
     link.target = "_blank";
-    link.download = "Resume__Md__Abu_Talha_Roni.pdf";
+    link.download = "Talha_Roni_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -72,7 +74,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-lg text-muted-foreground max-w-2xl leading-relaxed"
+                className="text-lg text-muted-foreground max-w-2xl leading-relaxed text-justify"
               >
                 I design intelligent machines and autonomous systems using embedded platforms and control algorithms. Passionate about combining hardware and software to solve real-world challenges in robotics and automation.
               </motion.p>
@@ -133,7 +135,7 @@ export function Hero() {
                   data-testid="button-hero-github"
                 >
                   <a href="https://github.com/mdabutalharoni" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-5 h-5" />
+                    <FaGithub className="w-5 h-5" />
                   </a>
                 </Button>
                 <Button
@@ -144,7 +146,7 @@ export function Hero() {
                   data-testid="button-hero-linkedin"
                 >
                   <a href="https://www.linkedin.com/in/mdabutalharoni" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-5 h-5" />
+                    <FaLinkedinIn className="w-5 h-5" />
                   </a>
                 </Button>
               </div>

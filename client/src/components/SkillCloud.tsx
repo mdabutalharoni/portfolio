@@ -11,7 +11,7 @@ export function SkillCloud() {
     : skills;
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     show: {
       opacity: 1,
       transition: {
@@ -21,7 +21,7 @@ export function SkillCloud() {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 20 },
     show: { opacity: 1, y: 0 }
   };
 
@@ -96,19 +96,6 @@ export function SkillCloud() {
                 </h3>
                 <p className="text-xs text-muted-foreground mb-2">{skill.category}</p>
                 
-                {/* Skill level indicator */}
-                <div className="flex justify-center gap-1">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full ${
-                        index < skill.level
-                          ? "bg-primary"
-                          : "bg-muted"
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
             </motion.div>
           ))}

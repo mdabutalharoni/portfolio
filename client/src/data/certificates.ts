@@ -1,3 +1,6 @@
+import ALA from "../../../public/certificates/Advanced_Learning_Algorithms.jpg";
+import pdsd from "../../../public/certificates/Python_for_Data_Science_and_AI.jpg";
+
 export interface Certificate {
   id: string;
   title: string;
@@ -11,11 +14,11 @@ export interface Certificate {
 export const certificates: Certificate[] = [
   {
     id: "aws-cloud-practitioner",
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
+    title: "Advanced Learning Algorithms",
+    issuer: "DeepLearning.AI",
     issueDate: "2024-03-15",
     credentialUrl: "https://aws.amazon.com/verification/verify-cert",
-    image: "certificate.jpg",
+    image: ALA,
     description: "Foundational understanding of AWS Cloud services and deployment"
   },
   {
@@ -24,7 +27,7 @@ export const certificates: Certificate[] = [
     issuer: "IEEE Robotics Society",
     issueDate: "2024-01-20",
     credentialUrl: "https://ieee.org/certification/verify",
-    image: "certificate.jpg",
+    image: pdsd,
     description: "Comprehensive certification in robotics principles and applications"
   },
   {

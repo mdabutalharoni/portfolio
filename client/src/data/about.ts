@@ -12,7 +12,7 @@ export interface Publication {
   title: string;
   venue: string;
   year: string;
-  authors: string[];
+  authors: { name: string; strong?: boolean }[];
   link?: string;
   type: "patent" | "journal" | "conference" | "workshop";
 }
@@ -69,8 +69,8 @@ export const publications: Publication[] = [
     venue: "Patent",
     year: "2024",
     authors: [
-      "S. S. Swapnil", "S. K. Sarker", "A. B. Dibya",
-      "M. T. Islam", "M. A. T. Roni", "K. Muhammad"
+      {name: "S. S. Swapnil"}, {name: "S. K. Sarker"}, {name: "A. B. Dibya"},
+      {name: "M. T. Islam"}, {name: "M. A. T. Roni", strong: true}, {name: "K. Muhammad"}
     ],
     type: "patent", // fallback type (since no "patent" in your type union)
     link: undefined,

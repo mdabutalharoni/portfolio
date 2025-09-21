@@ -49,9 +49,9 @@ export function CertificateCarousel() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Main carousel */}
-          <div className="relative h-96 overflow-hidden rounded-xl">
+          <div className="relative h-[410px] overflow-hidden rounded-xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -66,11 +66,11 @@ export function CertificateCarousel() {
                     <div className="grid md:grid-cols-2 h-full">
                       {/* Certificate image */}
                       <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center p-8">
-                        <div className="relative w-full max-w-xs">
+                        <div className="relative w-full max-w-md h-full items-center justify-center">
                           <img
-                            src={certificateImage}
+                            src={certificates[currentIndex].image || certificateImage}
                             alt={certificates[currentIndex].title}
-                            className="w-full h-auto rounded-lg shadow-lg"
+                            className="w-full h-auto rounded-lg shadow-lg justify-center object-cover"
                             data-testid={`cert-image-${certificates[currentIndex].id}`}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
