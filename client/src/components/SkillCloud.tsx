@@ -88,14 +88,18 @@ export function SkillCloud() {
               className="group"
             >
               <div className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate transition-all duration-300">
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
-                  {skill.icon}
+                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform flex justify-center">
+                  {skill.icon && (
+                    <skill.icon 
+                      style={{ color: skill.color }} 
+                      className="w-8 h-8"
+                    />
+                  )}
                 </div>
                 <h3 className="font-semibold text-sm mb-1" data-testid={`skill-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
                   {skill.name}
                 </h3>
                 <p className="text-xs text-muted-foreground mb-2">{skill.category}</p>
-                
               </div>
             </motion.div>
           ))}

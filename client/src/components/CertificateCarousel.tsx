@@ -14,7 +14,7 @@ export function CertificateCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % certificates.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -65,17 +65,20 @@ export function CertificateCarousel() {
                   <CardContent className="p-0 h-full">
                     <div className="grid md:grid-cols-2 h-full">
                       {/* Certificate image */}
-                      <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center p-8">
-                        <div className="relative w-full max-w-md h-full items-center justify-center">
+
+                      <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center p-4">
+                        <div className="w-full max-w-[450px] h-full max-h-[300px] aspect-video rounded-xl overflow-hidden duration-300">
                           <img
                             src={certificates[currentIndex].image || certificateImage}
                             alt={certificates[currentIndex].title}
-                            className="w-full h-auto rounded-lg shadow-lg justify-center object-cover"
-                            data-testid={`cert-image-${certificates[currentIndex].id}`}
+                            className="w-full h-full object-contain rounded-xl"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
                         </div>
                       </div>
+
+
+
+
 
                       {/* Certificate details */}
                       <div className="p-8 flex flex-col justify-center">
@@ -151,11 +154,10 @@ export function CertificateCarousel() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-primary scale-125"
-                    : "bg-muted hover:bg-muted-foreground/50"
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? "bg-primary scale-125"
+                  : "bg-muted hover:bg-muted-foreground/50"
+                  }`}
                 data-testid={`cert-dot-${index}`}
               />
             ))}
@@ -167,11 +169,10 @@ export function CertificateCarousel() {
               <motion.div
                 key={cert.id}
                 whileHover={{ scale: 1.05 }}
-                className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                  index === currentIndex
-                    ? "border-primary shadow-lg"
-                    : "border-transparent hover:border-muted-foreground/30"
-                }`}
+                className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-300 ${index === currentIndex
+                  ? "border-primary shadow-lg"
+                  : "border-transparent hover:border-muted-foreground/30"
+                  }`}
                 onClick={() => goToSlide(index)}
                 data-testid={`cert-thumbnail-${cert.id}`}
               >

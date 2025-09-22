@@ -41,7 +41,7 @@ export const education: Education[] = [
     degree: "B.Sc. in Electrical and Electronic Engineering",
     institution: "Rajshahi University of Engineering & Technology (RUET)",
     year: "2021 - 2025(Expected)",
-    gpa: "3.65 / 4.00",
+    gpa: "3.67 / 4.00",
     highlights: [
       "Focused on Robotics, Embedded Systems and Control Engineering",
       "Hands-on experience with microcontrollers, communication protocols, and simulation tools",
