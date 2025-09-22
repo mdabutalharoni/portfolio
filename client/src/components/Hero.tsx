@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import portraitImage from "@assets/me.png";
 import resume from "@assets/resume_talha_ruet.pdf";
 
+
+
 export function Hero() {
   const downloadCV = () => {
     const link = document.createElement("a");
