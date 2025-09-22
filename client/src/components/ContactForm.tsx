@@ -35,7 +35,7 @@ export function ContactForm() {
     // For now, just create a mailto link
     const subject = encodeURIComponent(`Contact from ${formData.name}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:example@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:abutalharoni10@gmail.com?subject=${subject}&body=${body}`;
     
     window.open(mailtoLink);
 
@@ -51,25 +51,25 @@ export function ContactForm() {
   const socialLinks = [
     {
       icon: Mail,
-      href: "mailto:example@gmail.com",
+      href: "mailto:abutalharoni10@gmail.com",
       label: "Email",
       color: "text-red-500"
     },
     {
       icon: Github,
-      href: "https://github.com/your-username",
+      href: "https://github.com/mdabutalharoni",
       label: "GitHub",
       color: "text-gray-900 dark:text-gray-100"
     },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/your-username",
+      href: "https://www.linkedin.com/in/mdabutalharoni",
       label: "LinkedIn",
       color: "text-blue-600"
     },
     {
       icon: Facebook,
-      href: "https://facebook.com/your-username",
+      href: "https://facebook.com/abutalharoni10",
       label: "Facebook",
       color: "text-blue-500"
     }
